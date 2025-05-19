@@ -1,0 +1,31 @@
+name: Trigger con workfloDispatch
+on:
+  workflow_dispatch: #triggers manually
+    inputs:
+      variable:
+        description: "variable a ser mostrada"
+        required: true
+        type: choice
+        options:
+          - prueba1
+          - prueba2
+          - prueba3
+  schedule:
+    - cron: "30 12 25 5 *"
+  pull_request:
+    types:
+      - closed
+
+jobs:
+  basic_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        run: actions/checkout@v3
+      - name: run_script
+        run: echo "probando triggers de workflowDispatch, schedule, e issue"
+  print_selected_var:
+    runs-on: ubuntu-latest
+    steps:
+      - name: mostrar_var
+        run: echo Prueba {{inputs.variable}}
