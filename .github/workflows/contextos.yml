@@ -1,0 +1,23 @@
+name: Contextos
+run-name: Probando contextos
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      text_inp:
+        description: texto
+        type: string
+        default: any
+jobs:
+  github_context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print_actor
+        run: echo el actor que inicio el workflow es ${{github.actor}}
+      - name: print_event
+        run: echo el evento que disparo el workflow fue ${{github.event}}
+      - name: si wrkdsptch
+        if: ${{github.event=='workflow_dispatch'}}
+        run: echo la pipeline fue disparada con workflow dispatch y el valor fue ${{inputs.text_inp}}
