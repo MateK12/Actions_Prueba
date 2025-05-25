@@ -18,7 +18,7 @@ jobs:
         run: echo el actor que inicio el workflow es ${{github.actor}}
       - name: print_event
         if: ${{github.event_name=='push'}}
-        run: echo el commit que disparo el workflow fue ${{head_commit.message}}
+        run: echo el commit que disparo el workflow fue ${{github.event.head_commit.message}}
       - name: si wrkdsptch
         if: ${{github.event_name=='workflow_dispatch'}}
         run: echo la pipeline fue disparada con workflow dispatch y el valor fue ${{inputs.text_inp}}
