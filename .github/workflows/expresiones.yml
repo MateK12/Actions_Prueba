@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: basic_print
-        run: echo puedes hacer operaciones aritmeticas ej 90-20=${{90-20}}
+        run: echo puedes hacer operaciones aritmeticas ej 90-20= ${{70}}
       - name: if_ready
         if: ${{inputs.estado=='Listo'}}
         run: echo 'la pipeline esta lista'
