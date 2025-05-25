@@ -1,0 +1,24 @@
+name: expresiones en actions
+run-name: Probando expresiones
+on:
+  workflow_dispatch:
+    inputs:
+      estado:
+        description: estado del codigo
+        required: true
+        type: choice
+        options:
+          - Listo
+          - No listo
+jobs:
+  show_expressions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: basic_print
+        run: echo puedes hacer operaciones aritmeticas ej 90-20=${{90-20}}
+      - name: if_ready
+        if: ${{inputs.estado=='Listo'}}
+        run: echo 'la pipeline esta lista'
+      - name: if_not_ready
+        if: ${{inputs.estado!='Listo'}}
+        run: echo la pipeline no esta lista

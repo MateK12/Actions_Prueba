@@ -1,4 +1,5 @@
-name: Trigger con workfloDispatch
+name: Trigger con workflowDispatch, schedule y pr
+run-name: Probando triggers
 
 on:
   workflow_dispatch: #triggers manually
