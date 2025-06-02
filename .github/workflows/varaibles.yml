@@ -1,0 +1,16 @@
+name: Variables desde UI y con env
+run-name: probando Variables
+on:
+  push:
+    branches:
+      - main
+env:
+  saludo_autor: "Hola amigo: ${{github.actor}}"
+jobs:
+  testing_vars:
+    runs-on: ubuntu-latest
+    steps:
+      - name: var_desde_env
+        run: echo $saludo_autor
+      - name: var_desde_UI
+        run: $PRUEBA
