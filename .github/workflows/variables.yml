@@ -13,4 +13,4 @@ jobs:
       - name: var_desde_env
         run: echo $saludo_autor
       - name: var_desde_UI
-        run: echo "esto es una prueaba $PRUEBA"
+        run: echo "esto es una prueaba ${{vars.PRUEBA}}"
