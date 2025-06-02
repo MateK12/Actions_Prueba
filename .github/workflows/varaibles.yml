@@ -5,7 +5,7 @@ on:
     branches:
       - main
 env:
-  saludo_autor: "Hola amigo: ${{github.actor}}"
+  saludo_autor: "Hola amigo: ${{github.actor}}" #concat text like this
 jobs:
   testing_vars:
     runs-on: ubuntu-latest
@@ -13,4 +13,4 @@ jobs:
       - name: var_desde_env
         run: echo $saludo_autor
       - name: var_desde_UI
-        run: $PRUEBA
+        run: echo $PRUEBA
